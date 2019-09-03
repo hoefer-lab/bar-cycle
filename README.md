@@ -11,21 +11,21 @@ OCaml 4.07.1 and should run on both OS X and Linux. OCaml and required
 libraries are best installed via the [opam package manager](opam.ocaml.org).
 The following OCaml libraries are required (listed with versions):
 
-| package        | tested version 
-| :---           | ---:           
-| containers     | 2.6
-| csv            | 2.2
-| ctypes         | 0.15.1
-| ctypes-foreign | 0.4.0
-| gen            | 0.5.2
-| gsl            | 1.24.0
-| lacaml         | 11.0.4
-| npy            | 0.0.8
-| parmap         | 1.0-rc10
-| sequence       | 1.1
+| package        | tested version | prerequisite
+| :---           | ---:           | ---:
+| containers     | 2.6            |
+| gen            | 0.5.2          |
+| sequence       | 1.1            |
+| ctypes         | 0.15.1         |
+| ctypes-foreign | 0.4.0          |
+| csv            | 2.2            |
+| gsl            | 1.24.0         | GSL installed
+| lacaml         | 11.0.4         | OpenBLAS installed
+| npy            | 0.0.8          |
+| parmap         | 1.0-rc10       |
 
-The libraries lacaml and gsl reqiure a system-wide installation of openblas and
-of the GSL. On OS X these can be installed via the homebrew package manager.
+On OS X, the prerequisites can be installed via the homebrew package manager.
+On Linux they should be available via the system package manager.
 
 For building, the package ocamlbuild is needed in addition. From the source
 directory, to build the native code executable for evidence calculation, type
