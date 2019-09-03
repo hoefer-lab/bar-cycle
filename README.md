@@ -9,28 +9,20 @@ lineage trees", by E. Kuchen, N. Becker et al.
 The code is written mainly in [OCaml](www.ocaml.org). It has been tested with
 OCaml 4.07.1 and should run on both OS X and Linux. OCaml and required
 libraries are best installed via the [opam package manager](opam.ocaml.org).
-The following OCaml libraries are required (listed with tested versions):
+The following OCaml libraries are required (listed with versions):
 
-name    containers
-version 2.6
-name    csv
-version 2.2
-name    ctypes
-version 0.15.1
-name    ctypes-foreign
-version 0.4.0
-name    gen
-version 0.5.2
-name    gsl
-version 1.24.0
-name    lacaml
-version 11.0.4
-name    npy
-version 0.0.8
-name    parmap
-version 1.0-rc10
-name    sequence
-version 1.1
+| package        | tested version 
+| :---           | ---:           
+| containers     | 2.6
+| csv            | 2.2
+| ctypes         | 0.15.1
+| ctypes-foreign | 0.4.0
+| gen            | 0.5.2
+| gsl            | 1.24.0
+| lacaml         | 11.0.4
+| npy            | 0.0.8
+| parmap         | 1.0-rc10
+| sequence       | 1.1
 
 The libraries lacaml and gsl reqiure a system-wide installation of openblas and
 of the GSL. On OS X these can be installed via the homebrew package manager.
