@@ -1,0 +1,16 @@
+*.csv
+*.npy
+*.npz
+*.mat
+tmp*
+tags
+Session.vim
+lmprof.json
+scratch*
+*.swo
+*.swp
+*.swn
+evidence_results/
+*old
+debug*
+

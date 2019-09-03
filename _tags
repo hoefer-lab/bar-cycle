@@ -1,0 +1,13 @@
+"containers-misc":-traverse
+"roseTree.ml": warn(-27)
+"import_csv.ml": warn(-48-42-41)
+<*>: warn(-58)
+#<*>: package(landmarks, landmarks.ppx)
+<*>: package(ctypes, ctypes.foreign)
+<*>: package(csv, gsl, containers, sequence, lacaml, bigarray, gen, parmap)
+<*>: principal
+<*>: debug
+<*>: warn(A-48-42)
+<*>: optimize(3)
+<*>: bin_annot
+<*>: package(zip, npy)
