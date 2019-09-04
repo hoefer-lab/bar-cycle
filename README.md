@@ -155,18 +155,16 @@ in R (version 3.4.3) using the stats package.
 
 To re-analyse the data, load MS_KuchenBeckeretal_datanalysis.m. This script
 loads in the lineage tree data (published as supplemental data with the
-article) and performs a bias-correction for finite observation time. The code
-is divided into sections, which can be run consecutively and each generate one
-figure panel as presented in the manuscript. Further analyses and plots include
-the distribution of cell cycle lengths and tests for potential temporal drift
-and spatial confounders.
+article). The code is divided into code blocks, which can be run consecutively. Each block generates one figure panel presented in the manuscript. The code blocks are titled by the figure panels they generate.  
+
+First the lineage tree control data (published as supplemental data: LineageTrees_controlReplicates_Neuroblastoma_KuchenBeckeretal) is loaded and a bias correction for finite observation time is performed. The corrected lineage trees are saved as ‘.mat’ files in the working directory. The corrected lineage trees are then again loaded and cycle length correlations and distributions analysed, within the whole population and with respect to the cell lineage, time and space.  
 
 
 ### List of files
 
 - MS_KuchenBeckeretal_datanalysis.m
 
-	Main data analysis file
+	Main data analysis file that calls the functions below
 
 - PlotCorrelations.m
 
@@ -190,18 +188,19 @@ correlations
 
 The growth-progression model is implemented in R (version 3.4.3) and simulates
 cell cycle lengths within lineage trees as described in Kuchen, Becker et al.
-The implementation does not require additional R packages to run, unless the
-output should be saved as a MATLAB file -- then the package ‘R.matlab’ is
-required.
+The implementation does not require additional R packages to run. However, if output files should be saved for downstream analysis with MATLAB, package ‘R.matlab’ is required.  
+
+Model, simulation and output parameters can be specified in the initial code section marked USER INPUT. Current settings present the settings used to simulate the results shown for rep2. Prototypic output figures are generated. The more refined figure panel versions shown in the publication were generated with MATLAB.
+
+The user can decide between two different cell growth models, either exponential (used for rep, rap and esc cells) or logistic growth (used for –myc cells). 
+
+The implemented model can simulate either full branched-out lineage trees (using checkstationary=0) or with checkstationary=1 full branched-out lineage trees up to a fixed number of generations (determined by ‘xgen’) with cells being randomly removed and lineage trees simulated for another ‘genssimu-xgen’ generations thereafter to avoid memory issues do to an excessively large data frame. The former (checkstationary=0) was used for the simulation results shown. Checkstationary=1 was only used to investigate the stationarity in cell age and size over time. 
 
 The growth-progression model simulation is additionally provided as a
 functionally equivalent but faster OCaml program. Both R and Ocaml versions
 were tested for equivalence and used in various stages of the project.
 
-MATLAB code is provided to further analyse the simulation results in the matlab
-file MS_KuchenBeckeretal_modelanalysis.m. This script performs a best fit
-parameter estimation using Approximate Bayesian Computing. In addition, the
-distribution of cell age and cell size over time can be analysed.
+Finally, lineage tree simulations were further analysed using MATLAB, file MS_KuchenBeckeretal_modelanalysis.m. This script performs a best fit parameter estimation using Approximate Bayesian Computing using simulated lineage trees under many different parameter combinations as input. In addition, the distribution of cell age and cell size over time can be analysed using simulation runs under checkstationary=1 (see above) as input. 
 
 
 ### List of files
@@ -222,7 +221,7 @@ MATLAB.)
 - MS_KuchenBeckeretal_modelanalysis.m
 
 	ABC parameter estimation for the growth-progression model, based on the set
-of cycle correlations between related cells
+of cycle correlations between related cells. Investigation of cell age and size homeostasis.
 
 - simulate_growth_progression.ml
 
